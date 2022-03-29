@@ -1,6 +1,7 @@
 package com.ssaurel.pathfinding;
 
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class AStar {
 
@@ -211,16 +212,42 @@ public class AStar {
 		} else
 			System.out.println("No possible path");
 	}
-		                
+	 
+	
 	public static void main(String[] args) {
-		AStar aStar = new AStar(59,75,0,0,58,74,
-				new int[][] {
-					{0,4}, {2,2}, {3,1}, {3,3}, {2,1}, {2,3}
-				}
-		);
-		aStar.display();
+		//67,93,0,0,66,92,
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Choose Office Number: \n205, 206, 207, 208, 209\n");
+		int DE_x = 0;
+		int DE_y = 0;
+		
+		String destination = scan.nextLine();
+		if (destination.equals("205")) {
+			DE_x = 22;
+			DE_y = 8;
+		}
+		else if (destination.equals("206") || destination.equals("207")) {
+			DE_x = 59;
+			DE_y = 8;
+		}
+		else if (destination.equals("208")) {
+			DE_x = 59;
+			DE_y = 46;
+		}
+		else if (destination.equals("209")) {
+			DE_x = 59;
+			DE_y = 83;
+		}
+		else {
+			System.out.print("Not a destination. Choose another.");
+			System.exit(0);
+		}
+			
+		
+		AStar aStar = new AStar(67,93,0,8,DE_x,DE_y, Blocks.block);
+		//aStar.display();
 		aStar.process(); //apply A* algorithm
-		aStar.displayScores(); //display scores on grid
+		//aStar.displayScores(); //display scores on grid
 		aStar.displaySolution(); // display solution path
 	}
 		
