@@ -328,8 +328,6 @@ public class MainActivity extends AppCompatActivity {
 
         // aligns Loomo to face its starting positive x direction
         // without this, keeping track of where Loomo is facing is a bit more challenging
-        // IF THIS DOESN'T WORK - you can create properties to see where Loomo is facing
-        // and maybe come up with a solution that way too
         if (lastDirection > 0)
         {
             alignLoomo(lastDirection, moveX, moveY);
